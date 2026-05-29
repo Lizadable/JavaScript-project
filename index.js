@@ -1,11 +1,18 @@
 // http://www.omdbapi.com/?i=tt3896198&apikey=9d77be17
 
 let movies = [];
+let searchTerm = "";
 
-async function getMovies(filter) {
+function setSearchTerm(event) {
+  searchTerm = event.target.value;
+}
+
+async function getMovies() {
   try {
     const response = await fetch(
-      "http://www.omdbapi.com/?i=tt3896198&apikey=9d77be17&s=fast",
+      `http://www.omdbapi.com/?i=tt3896198&apikey=9d77be17&s=${
+        searchTerm || "christmas"
+      }`,
     );
 
     // Check if the response is okay (status code 200-299)
@@ -14,6 +21,9 @@ async function getMovies(filter) {
     }
 
     const moviesData = await response.json(); // Get the JSON data
+    movies = moviesData.Search;
+
+    console.log(moviesData);
     const movieListEl = document.querySelector(".movie-list");
 
     // Check if moviesData has Search property
@@ -31,28 +41,25 @@ async function getMovies(filter) {
 
 getMovies();
 
-console.log(filter);
-
 function filterMovies(event) {
-  if (event.target.value === "YEAR") renderMovies(event.target.value);
+  const filterValue = event.target.value;
+  if (filterValue === "YEAR") {
+    sortedMovies = movies.sort(
+      (a, b) => parseFloat(a.Year.slice(0, 4)) - parseFloat(b.Year.slice(0, 4)),
+    ); // Sort by year
+  } else if (filterValue === "TITLE") {
+    sortedMovies = movies.sort((a, b) => a.Title.localeCompare(b.Title)); // Sort by title
+  }
+
+  // Call a function to render the sorted movies
+  renderMovies(sortedMovies);
 }
 
-// Sorting logic based on the selected option
-if (selectedOption === "YEAR") {
- sortedMovies = movies.sort((a, b) => a.Year - b.Year); // Sort by year
-} else if (selectedOption === "TITLE") {
- sortedMovies = movies.sort((a, b) => a.Title.localeCompare(b.Title)); // Sort by title
-}
-
-const movieListE1 = document.querySelector(".movie-list");
-movieListE1.innerHTML = movies.map(movie=> movieHTML(movie)).join("");
-
-// Call a function to render the sorted movies
-renderMovies(sortedMovies);
-
-function renderMovies(filter) {
+function renderMovies(sortedMovies) {
   const movieListEl = document.querySelector(".movie-list");
-  movieListEl.innerHTML = movies.map((movie) => movieHTML(movie)).join("");
+  movieListEl.innerHTML = sortedMovies
+    .map((movie) => movieHTML(movie))
+    .join("");
 }
 
 function movieHTML(movie) {

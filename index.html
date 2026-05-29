@@ -1,60 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Library</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://kit.fontawesome.com/7503c1ac45.js" crossorigin="anonymous"></script>
-    <script src="index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/7503c1ac45.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js" defer></script>
   </head>
   <body>
-     <section id="landing">
+    <section id="landing">
       <nav>
         <div class="nav__container">
-          <img class="movie__img" src="https://up.yimg.com/ib/th/id/OIP.Q9BRikDgj5ZXw7R7Y7OHRwHaE7?pid=Api&rs=1&c=1&qlt=95&w=163&h=108">
+          <img
+            class="movie__img"
+            src="https://up.yimg.com/ib/th/id/OIP.Q9BRikDgj5ZXw7R7Y7OHRwHaE7?pid=Api&rs=1&c=1&qlt=95&w=163&h=108"
+          />
           <ul class="nav__links">
             <li><a href="#" class="nav__link">Home</a></li>
             <li><a href="#" class="nav__link">Contact</a></li>
             <li><a href="#" class="nav__link nav__link--primary">Movies</a></li>
           </ul>
-          
         </div>
-      </nav> 
+      </nav>
       <div class="row">
         <h1 class="title">Welcome to the Movie Library</h1>
-        <input type="text" id="search-box" placeholder="Enter search term">
-      <button id="search-button" class="btn">Search
-        <div class="icon">
-       <i class="fa-solid fa-magnifying-glass"></i>   
-       </div>   
-</button>
-<div id="results"></div>
-</div>
-     </section>
-   
+        <input
+          type="text"
+          id="search-box"
+          placeholder="Enter search term"
+          onchange="setSearchTerm(event)"
+        />
+        <button id="search-button" class="btn" onclick="getMovies()">
+          Search
+          <div class="icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </button>
+        <div id="results"></div>
+      </div>
+    </section>
+
     <section id="home">
       <div class="home__header">
-       <div class="container">
-          <h2 class="subtitle"> Search Results:</h2>
+        <div class="container">
+          <h2 class="subtitle">Search Results:</h2>
           <select id="filter" onchange="filterMovies(event)">
-                <option value="" disabled selected>Sort by</option>
-                <option value="YEAR">Year Released:</option>
-                <option value="TITLE">Title</option>
-              </select>
+            <option value="" disabled selected>Sort by</option>
+            <option value="YEAR">Year Released:</option>
+            <option value="TITLE">Title</option>
+          </select>
+
           <div class="movies">
-                          <i class="fa-solid fa-spinner movies__loading--spinner"></i>
-                          <div class="movie-list">
-                            <div class="movie">
-                            </div>
+            <i class="fa-solid fa-spinner movies__loading--spinner"></i>
+            <div class="movie-list">
+              <div class="movie"></div>
             </div>
-           </div>
-         </div>
-        </div>   
+          </div>
+        </div>
       </div>
-       
     </section>
-    
+
     <footer>
       <div class="container">
         <div class="row row__column">
@@ -63,9 +72,11 @@
             <a href="#features" class="footer__link">Movies</a>
             <a class="footer__link no-cursor">Contact</a>
           </div>
-          <div class="footer__copyright">Copyright &copy; 2026 Movie Library</div>
+          <div class="footer__copyright">
+            Copyright &copy; 2026 Movie Library
+          </div>
         </div>
       </div>
     </footer>
   </body>
-  </html>
+</html>
