@@ -30,16 +30,11 @@
         <h1 class="title">Welcome to the Movie Library</h1>
         <input
           type="text"
-          id="search-box"
-          placeholder="Enter search term"
+          id="search-box" class="search__box"
+          placeholder="Search For" 
           onchange="setSearchTerm(event)"
         />
-        <button id="search-button" class="btn" onclick="getMovies()">
-          Search
-          <div class="icon">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
-        </button>
+        
         <div id="results"></div>
       </div>
     </section>
@@ -53,12 +48,13 @@
             <option value="YEAR">Year Released:</option>
             <option value="TITLE">Title</option>
           </select>
+          </div>
 
           <div class="movies">
             <i class="fa-solid fa-spinner movies__loading--spinner"></i>
             <div class="movie-list">
               <div class="movie"></div>
-            </div>
+            
           </div>
         </div>
       </div>

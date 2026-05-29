@@ -67,6 +67,8 @@ h4 {
   max-width: 1200px;
   padding: 0 24px;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 /*
@@ -109,16 +111,20 @@ landing
   color: white;
 }
 
-.btn {
+.search__box {
   background-color: white;
-  color: blue;
   padding: 12px 70px;
   font-size: 20px;
   border: 2px solid black;
   border-radius: 40px;
   display: flex;
-  align-items: space-between;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+}
+
+.search__text {
+  color: blue;
+  font-size: 20px;
 }
 
 .row {
@@ -151,7 +157,6 @@ select {
   height: 48px;
   line-height: 48px;
   padding: 8 16px;
-  
 }
 
 .movies__loading {
