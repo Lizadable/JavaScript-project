@@ -3,6 +3,7 @@
 let movies = [];
 let searchTerm = "";
 
+
 function setSearchTerm(event) {
   searchTerm = event.target.value;
 }
@@ -64,9 +65,9 @@ function renderMovies(sortedMovies) {
 
 function movieHTML(movie) {
   return `
-          <div class="movies__container">
-          <div class="movies__list">
-          <div class="movies">
+          <div class="movie__container">
+          <div class="movie__list">
+          <div class="movie">
             <h3>${movie.Title}</h3>  <!-- using movie.Title -->
             <h4>${movie.Year}</h4>   <!-- using movie.Year -->
             <figure class="movie__img--wrapper">

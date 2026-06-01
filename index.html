@@ -26,38 +26,46 @@
           </ul>
         </div>
       </nav>
-      <div class="row">
-        <h1 class="title">Welcome to the Movie Library</h1>
-        <input
-          type="text"
-          id="search-box" class="search__box"
-          placeholder="Search For" 
-          onchange="setSearchTerm(event)"
-        />
+     
+      
+        </section>    
         
-        <div id="results"></div>
-      </div>
     </section>
 
     <section id="home">
-      <div class="home__header">
-        <div class="container">
-          <h2 class="subtitle">Search Results:</h2>
-          <select id="filter" onchange="filterMovies(event)">
-            <option value="" disabled selected>Sort by</option>
-            <option value="YEAR">Year Released:</option>
-            <option value="TITLE">Title</option>
-          </select>
-          </div>
-
-          <div class="movies">
+      <div class="container">
+        <div class="row">
+          <div class="home__header">
+          <h1 class="title">Welcome to the Movie Library</h1>   
+            <select id="filter" onchange="filterMovies(event)">
+              <option value="" disabled selected>Sort by</option>
+              <option value="YEAR">Year Released:</option>
+              <option value="TITLE">Title</option>
+            </select>
+            </div>
+            <button id="search-button" class="btn" onclick="getMovies()">
+            <input
+          type="text"
+          id="search-box" 
+          placeholder="Enter search term"
+          onchange="setSearchTerm(event)"
+             />
+              <div class="icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+            </button>
+            <div class="movies">
             <i class="fa-solid fa-spinner movies__loading--spinner"></i>
-            <div class="movie-list">
-              <div class="movie"></div>
-            
+            </div>
           </div>
         </div>
-      </div>
+<section id="search-results">
+      
+          
+            <div class="movie-list">
+              <div class="movie"></div>
+            </div>
+         
     </section>
 
     <footer>
