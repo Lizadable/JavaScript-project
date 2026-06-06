@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  max-width: 1120px;
+  max-width: 1200px;
   overflow-x: hidden;
 }
 
@@ -22,7 +22,8 @@ nav {
 
 img {
   width: 100%;
-  height: auto;
+  height: 200px;
+  object-fit: cover;
 }
 
 p {
@@ -49,6 +50,31 @@ button:active {
   transform: translateY(1px);
 }
 
+.hidden {
+  display: none;
+}
+
+.spinner {
+  font-size: 32px;
+  color: blue;
+  animation: spin 1s linear infinite;
+  margin: 16px auto;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.search-results__header {
+  display: flex;
+  justify-content: center;
+}
+
 h1 {
   font-size: 40px;
   color: black;
@@ -67,11 +93,14 @@ h3 {
   color: blue;
   flex-wrap: wrap;
   width: 200px;
+  text-align: center;
 }
 
 h4 {
   font-size: 18px;
   color: blue;
+  width: 200px;
+  text-align: center;
 }
 
 .container {
@@ -90,7 +119,7 @@ landing
 .movie__img {
   width: 75px;
   height: auto;
-  align-self: left;
+  align-self: center;
 }
 
 .nav__container {
@@ -136,7 +165,6 @@ Home
   padding-right: 40px;
 }
 
-
 .home__header {
   display: flex;
   justify-content: space-between;
@@ -153,11 +181,19 @@ select {
   align-items: right;
 }
 
-Input {
+input {
   border: none;
 
   margin: 8px;
   color: blue;
+}
+
+input#search-box {
+  width: 300px;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 20px;
+  border: none;
 }
 
 .btn {
@@ -171,9 +207,16 @@ Input {
   align-items: center;
 }
 
+.btn:hover {
+  background-color: lightblue;
+  color: white;
+  border-color: lightblue;
+}
+
 #search-box {
   color: blue;
   font-size: 20px;
+  padding: 0 24px;
 }
 
 .row {
@@ -186,13 +229,26 @@ Input {
   font-size: 20px;
 }
 
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie {
+  margin: 24px auto;
+  width: 150px;
+  height: 300px;
+}
+
 .movies__container {
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 24px;
+  width: calc(100% / 4);
+  padding: 0 40px;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .row__column {
@@ -208,30 +264,12 @@ Input {
   height: 200px;
 }
 
-.movies__loading--spinner {
-  font-size: 50px;
-  color: Darkblue;
-  animation: rotate 1s linear infinite;
-  display: none;
-}
-
-.movies__loading .movies__loading--spinner {
-  display: block;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .movie__img--wrapper {
-  width: 150px;
+  width: 200px;
   height: 200px;
-  margin: 24px;
+  overflow: hidden;
+  margin-top: 16px;
+  padding: 0 16px;
 }
 
 /* FOOTER */
@@ -249,4 +287,77 @@ footer {
   color: Blue;
   font-size: 18px;
   padding: 20px;
+}
+
+/* SMALL PHONES, TABLETS, LARGE SMARTPHONES */
+
+@media (max-width: 768px) {
+  .nav__container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .nav__links {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav__link {
+    margin-left: 0;
+    margin-bottom: 8px;
+  }
+
+  h3 {
+    font-size: 15px;
+    color: blue;
+    flex-wrap: wrap;
+    width: 100px;
+    text-align: center;
+  }
+
+  h4 {
+    font-size: 15px;
+    color: blue;
+    width: 100px;
+    text-align: center;
+  }
+
+  .home__header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title {
+    padding-right: 0;
+    margin-bottom: 16px;
+  }
+
+  .movies__container {
+    width: calc(100% / 3);
+    padding: 0 20px;
+  }
+
+  .movie__img--wrapper {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin-top: 16px;
+    padding: 0 16px;
+  }
+
+  .movie {
+    margin: 24px auto;
+    width: 100px;
+    height: 175px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .movies__container {
+    width: calc(100% / 2);
+    padding: 0 16px;
+  }
 }
