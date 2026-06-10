@@ -21,7 +21,7 @@ async function getMovies() {
 
   try {
     const response = await fetch(
-      `http://www.omdbapi.com/?i=tt3896198&apikey=9d77be17&s=${
+      `https://www.omdbapi.com/?i=tt3896198&apikey=9d77be17&s=${
         searchTerm || "christmas"
       }`,
     );
